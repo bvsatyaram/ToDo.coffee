@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/bv/workspace/projects/misc/ToDo.coffee"
+		}
+	],
+  "settings":
+    {
+        "CoffeeScript":
+        {
+            "noWrapper": true,
+            "compileOnSave": true,
+            "compileDir": "../"
+        }
+    }
+}
