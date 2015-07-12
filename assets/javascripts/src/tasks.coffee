@@ -1,6 +1,10 @@
+Task =
+  add: (title) ->
+    $('ul#tasks').append "<li>#{title}</li>"
+
 $ ->
   $('#new-task').submit (ev) ->
     ev.preventDefault()
-    $('ul#tasks').append "<li>#{$(@).find('input').val()}</li>"
+    Task.add $(@).find('input').val()
     @.reset()
     false
