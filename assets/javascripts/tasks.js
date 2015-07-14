@@ -12,6 +12,7 @@ TasksController = {
 };
 
 $(function() {
+  TasksController.init();
   return $('#new-task').submit(function(ev) {
     ev.preventDefault();
     TasksController.add($(this).find('input').val());
