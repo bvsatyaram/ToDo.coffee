@@ -6,8 +6,10 @@ TasksController = {
     return this.tasks = [];
   },
   add: function(title) {
-    this.tasks.push(title);
-    return $('ul#tasks').append("<li>" + title + "</li>");
+    if ($.trim(title)) {
+      this.tasks.push(title);
+      return $('ul#tasks').append("<li>" + title + "</li>");
+    }
   }
 };
 

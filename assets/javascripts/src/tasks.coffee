@@ -2,8 +2,9 @@ TasksController =
   init: ->
     @.tasks = []
   add: (title) ->
-    @.tasks.push(title)
-    $('ul#tasks').append "<li>#{title}</li>"
+    if $.trim(title)
+      @.tasks.push(title)
+      $('ul#tasks').append "<li>#{title}</li>"
 
 $ ->
   TasksController.init()
