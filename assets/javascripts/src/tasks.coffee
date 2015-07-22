@@ -4,7 +4,7 @@ TasksController =
   add: (title) ->
     if $.trim(title)
       @.tasks.push(title)
-      $('ul#tasks').append "<li>#{title}</li>"
+      $('ul#tasks').append "<li><i class='fa fa-check-square-o'></i>#{title}</li>"
 
 $ ->
   TasksController.init()

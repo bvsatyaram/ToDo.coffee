@@ -8,7 +8,7 @@ TasksController = {
   add: function(title) {
     if ($.trim(title)) {
       this.tasks.push(title);
-      return $('ul#tasks').append("<li>" + title + "</li>");
+      return $('ul#tasks').append("<li><i class='fa fa-check-square-o'></i>" + title + "</li>");
     }
   }
 };

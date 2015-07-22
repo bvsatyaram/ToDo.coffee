@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAEI,gBAAK;EACH,YAAY,EAAE,IAAI",
+"sources": ["src/tasks.scss"],
 "names": [],
 "file": "tasks.css"
 }
