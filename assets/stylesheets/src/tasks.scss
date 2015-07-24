@@ -2,6 +2,14 @@ ul#tasks {
   li {
     i.fa {
       margin-right: 10px;
+
+      &.fa-square-o {
+        display: inline-block;
+      }
+
+      &.fa-check-square-o {
+        display: none;
+      }
     }
   }
 }

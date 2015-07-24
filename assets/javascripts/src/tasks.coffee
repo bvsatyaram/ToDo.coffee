@@ -1,10 +1,14 @@
 TasksController =
   init: ->
     @.tasks = []
+    @.taskTemplate = $('#task-template').html()
+    Mustache.parse(@.taskTemplate)
   add: (title) ->
     if $.trim(title)
       @.tasks.push(title)
-      $('ul#tasks').append "<li><i class='fa fa-check-square-o'></i>#{title}</li>"
+      $('ul#tasks').append @.taskTag(title)
+  taskTag: (title) ->
+    Mustache.render(@.taskTemplate, {title: title})
 
 $ ->
   TasksController.init()

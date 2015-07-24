@@ -3,13 +3,20 @@ var TasksController;
 
 TasksController = {
   init: function() {
-    return this.tasks = [];
+    this.tasks = [];
+    this.taskTemplate = $('#task-template').html();
+    return Mustache.parse(this.taskTemplate);
   },
   add: function(title) {
     if ($.trim(title)) {
       this.tasks.push(title);
-      return $('ul#tasks').append("<li><i class='fa fa-check-square-o'></i>" + title + "</li>");
+      return $('ul#tasks').append(this.taskTag(title));
     }
+  },
+  taskTag: function(title) {
+    return Mustache.render(this.taskTemplate, {
+      title: title
+    });
   }
 };
 

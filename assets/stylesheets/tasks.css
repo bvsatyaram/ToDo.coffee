@@ -1,4 +1,8 @@
 ul#tasks li i.fa {
   margin-right: 10px; }
+  ul#tasks li i.fa.fa-square-o {
+    display: inline-block; }
+  ul#tasks li i.fa.fa-check-square-o {
+    display: none; }
 
 /*# sourceMappingURL=tasks.css.map */

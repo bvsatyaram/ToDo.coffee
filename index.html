@@ -8,12 +8,20 @@
   <link rel="stylesheet" href="assets/stylesheets/bootstrap-yeti.min.css">
   <link rel="stylesheet" href="assets/stylesheets/tasks.css">
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="assets/javascripts/mustache.min.js"></script>
   <script src="assets/javascripts/tasks.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="container">
     <h1>ToDO</h1>
+    <script id="task-template" type="x-tmpl-mustache">
+      <li>
+        <i class='fa fa-check-square-o'></i>
+        <i class='fa fa-square-o'></i>
+        {{title}}
+      </li>
+    </script>
     <ul id="tasks" class="list-unstyled">
     </ul>
     <form id="new-task">
