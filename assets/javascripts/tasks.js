@@ -8,14 +8,21 @@ TasksController = {
     return Mustache.parse(this.taskTemplate);
   },
   add: function(title) {
+    var taskCounter;
+    taskCounter = this.tasks.length + 1;
     if ($.trim(title)) {
-      this.tasks.push(title);
-      return $('ul#tasks').append(this.taskTag(title));
+      this.tasks.push({
+        title: title,
+        done: false,
+        counter: taskCounter
+      });
+      return $('ul#tasks').append(this.taskTag(title, taskCounter));
     }
   },
-  taskTag: function(title) {
+  taskTag: function(title, taskCounter) {
     return Mustache.render(this.taskTemplate, {
-      title: title
+      title: title,
+      taskCounter: taskCounter
     });
   }
 };
