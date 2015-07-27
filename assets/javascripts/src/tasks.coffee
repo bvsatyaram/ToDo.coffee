@@ -4,15 +4,29 @@ TasksController =
     @.taskTemplate = $('#task-template').html()
     Mustache.parse(@.taskTemplate)
   add: (title) ->
-    taskCounter = @.tasks.length + 1
     if $.trim(title)
-      @.tasks.push
+      task =
         title:title
         done: false
-        counter: taskCounter
-      $('ul#tasks').append @.taskTag(title, taskCounter)
+        counter: @.tasks.length + 1
+      @.tasks.push task
+      $('ul#tasks').append @.taskTag(task.title, task.counter)
+      @.bindClick(task.counter)
+  toggle: (counter) ->
+    counter = parseInt(counter)
+    for task in @.tasks
+      if task.counter == counter
+        task.done = !task.done
+        if task.done
+          $("#task-#{counter}").addClass('done')
+        else
+          $("#task-#{counter}").removeClass('done')
   taskTag: (title, taskCounter) ->
     Mustache.render(@.taskTemplate, {title: title, taskCounter: taskCounter})
+  bindClick: (counter) ->
+    $("#task-#{counter}").click ->
+      console.log "Clicked"
+      TasksController.toggle(parseInt(@.dataset.counter))
 
 $ ->
   TasksController.init()

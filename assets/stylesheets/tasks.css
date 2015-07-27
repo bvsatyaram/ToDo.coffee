@@ -1,8 +1,14 @@
-ul#tasks li i.fa {
-  margin-right: 10px; }
-  ul#tasks li i.fa.fa-square-o {
-    display: inline-block; }
-  ul#tasks li i.fa.fa-check-square-o {
+ul#tasks li {
+  cursor: pointer; }
+  ul#tasks li i.fa {
+    margin-right: 10px; }
+    ul#tasks li i.fa.fa-square-o {
+      display: inline-block; }
+    ul#tasks li i.fa.fa-check-square-o {
+      display: none; }
+  ul#tasks li.done i.fa-square-o {
     display: none; }
+  ul#tasks li.done i.fa-check-square-o {
+    display: inline-block; }
 
 /*# sourceMappingURL=tasks.css.map */
