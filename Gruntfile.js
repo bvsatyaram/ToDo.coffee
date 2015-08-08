@@ -21,19 +21,20 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['assets/**/*.scss'],
-        tasks: ['sass', 'concat:css']
-      },
-    },
-    concat: {
-      css: {
-        src: ['assets/stylesheets/bootstrap-yeti.css', 'assets/stylesheets/tasks.css'],
-        dest: 'assets/stylesheets/app.css',
+        tasks: ['sass', 'cssmin']
       },
     },
     uglify: {
       my_target: {
         files: {
           'assets/javascripts/app.min.js': ['assets/javascripts/mustache.js', 'assets/javascripts/tasks.js']
+        }
+      }
+    },
+    cssmin: {
+      target: {
+        files: {
+          'assets/stylesheets/app.min.css': ['assets/stylesheets/bootstrap-yeti.css', 'assets/stylesheets/tasks.css']
         }
       }
     }
@@ -43,5 +44,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['coffee', 'sass', 'concat', 'uglify', 'watch'])
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['coffee', 'sass', 'uglify', 'cssmin', 'watch'])
 };
