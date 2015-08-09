@@ -17,27 +17,33 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['assets/**/*.coffee'],
-        tasks: ['coffee', 'concat:js']
+        tasks: ['coffee', 'uglify']
       },
       css: {
         files: ['assets/**/*.scss'],
-        tasks: ['sass', 'concat:css']
+        tasks: ['sass', 'cssmin']
       },
     },
-    concat: {
-      js: {
-        src: ['assets/javascripts/mustache.js', 'assets/javascripts/tasks.js'],
-        dest: 'assets/javascripts/app.js',
-      },
-      css: {
-        src: ['assets/stylesheets/bootstrap-yeti.css', 'assets/stylesheets/tasks.css'],
-        dest: 'assets/stylesheets/app.css',
-      },
+    uglify: {
+      my_target: {
+        files: {
+          'assets/javascripts/app.min.js': ['assets/javascripts/mustache.js', 'assets/javascripts/tasks.js']
+        }
+      }
+    },
+    cssmin: {
+      target: {
+        files: {
+          'assets/stylesheets/app.min.css': ['assets/stylesheets/bootstrap-yeti.css', 'assets/stylesheets/tasks.css']
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.registerTask('default', ['coffee', 'sass', 'concat', 'watch'])
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['coffee', 'sass', 'uglify', 'cssmin', 'watch'])
 };

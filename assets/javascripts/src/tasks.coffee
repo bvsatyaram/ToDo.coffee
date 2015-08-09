@@ -25,7 +25,6 @@ TasksController =
     Mustache.render(@.taskTemplate, {title: title, taskCounter: taskCounter})
   bindClick: (counter) ->
     $("#task-#{counter}").click ->
-      console.log "Clicked"
       TasksController.toggle(parseInt(@.dataset.counter))
 
 $ ->
